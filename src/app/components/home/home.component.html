@@ -1,0 +1,39 @@
+<div class="container">
+  <br>
+      <!--Showing component properties with interpolation-->
+      <h4>
+        {{title}}
+      </h4>
+
+      <!--Showing an array property with *ngFor-->
+      <table class="table">
+        <tbody>
+          <tr *ngFor="let student of students">
+            <td>{{student.id}}</td>
+            <td>{{student.name}}</td>
+            <td>{{student.password}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!--Template reference variable-->
+      <div >
+        <label>A:
+          <input type="text" #customeInput (keyup)="0" [placeholder]="defaultText" style="width: 300px">
+        </label>
+      </div>
+      <p>{{customeInput.value}}</p>
+
+      <div>
+          <label>B:
+            <input type="text" [placeholder]="textForTwoBinding" [(ngModel)]="inputText" style="width: 300px">
+          </label>
+        </div>
+
+      <!--Event handling-->
+      <!--propery binding-->
+      <button [disabled]="isDisabled" (click)="setValueA(customeInput)" >Update A</button>
+      <button [disabled]="isDisabled" (click)="setValueB()" >Update B</button>
+
+  <hr>
+</div>
